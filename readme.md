@@ -116,7 +116,7 @@ The `render` prop function is called with the following object:
 
 ## Related Work
 
-Thanks to [Kent C Dodds](github.com/kentcdodds) for formalizing the "prop getters" idea in [downshift](https://github.com/kentcdodds/downshift). And for the readme formatting, which I've stolen.
+Thanks to [Kent C Dodds](github.com/kentcdodds) for formalizing the "prop getters" idea in [downshift](https://github.com/paypal/downshift). And for the readme formatting, which I've stolen.
 
 ## License
 

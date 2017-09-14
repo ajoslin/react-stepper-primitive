@@ -6,15 +6,15 @@ const numericPattern = require('numeric-pattern')
 
 const callAll = (...fns) => arg => fns.forEach(fn => fn && fn(arg))
 
-module.exports = exports.default = class ReactStepUp extends React.Component {
+module.exports = exports.default = class StepperPrimitive extends React.Component {
   static propTypes = {
     defaultValue: PropTypes.number,
     value: PropTypes.number,
     step: PropTypes.number,
     min: PropTypes.number,
     max: PropTypes.number,
-    render: PropTypes.func,
-    onChange: PropTypes.func
+    onChange: PropTypes.func,
+    render: PropTypes.func.isRequired
   }
 
   static defaultProps = {
@@ -22,7 +22,6 @@ module.exports = exports.default = class ReactStepUp extends React.Component {
     step: 1,
     min: -Number.MAX_VALUE,
     max: Number.MAX_VALUE,
-    render: () => null,
     onChange: () => {}
   }
 
@@ -38,7 +37,8 @@ module.exports = exports.default = class ReactStepUp extends React.Component {
     return this.isControlled() ? this.props.value : state.value
   }
 
-  setValue (value) {
+  setValue = (value) => {
+    value = Math.min(this.props.max, Math.max(value, this.props.min))
     if (this.isControlled()) {
       this.props.onChange(value)
     } else {
@@ -47,26 +47,21 @@ module.exports = exports.default = class ReactStepUp extends React.Component {
   }
 
   increment = () => {
-    this.setValue(
-      Math.min(
-        this.props.max,
-        this.getValue() + this.props.step
-      )
-    )
+    this.setValue(this.getValue() + this.props.step)
   }
 
   decrement = () => {
-    this.setValue(
-      Math.max(
-        this.props.min,
-        this.getValue() - this.props.step
-      )
-    )
+    this.setValue(this.getValue() - this.props.step)
   }
 
   handleSubmit = ev => {
     ev.preventDefault()
     this.handleBlur()
+  }
+
+  handleInputRef = node => {
+    if (!node) return
+    this.input = node
   }
 
   handleBlur = () => {
@@ -77,7 +72,6 @@ module.exports = exports.default = class ReactStepUp extends React.Component {
     let value = parseFloat(this.input.value)
     if (isNaN(value) || value === this.getValue()) return
 
-    value = Math.min(this.props.max, Math.max(value, this.props.min))
     this.setValue(value)
   }
 
@@ -87,11 +81,6 @@ module.exports = exports.default = class ReactStepUp extends React.Component {
       this.input.value = this.getValue()
       this.input.setSelectionRange(0, 9999)
     })
-  }
-
-  handleInputRef = node => {
-    if (!node) return
-    this.input = node
   }
 
   getFormProps = (props = {}) => {
@@ -122,11 +111,9 @@ module.exports = exports.default = class ReactStepUp extends React.Component {
       focused: this.state.focused,
       // When the input is focused, let the user type freely.
       // When the input isn't, lock it to the current value
-      ...(this.state.focused
-          ? {}
-          : {
-            value: this.getValue()
-          })
+      ...this.state.focused ? {} : {
+        value: this.getValue()
+      }
     }
   }
 

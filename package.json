@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "A React primitive for building a stepper component",
   "scripts": {
-    "test": "standard 'src/**/*.js'",
+    "test": "standard 'src/**/*.js' && jest",
     "build": "babel ./src -d dist",
     "prepublish": "npm -s run build"
   },
@@ -31,12 +31,18 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "babel-standard": "^0.2.0",
+    "enzyme": "^2.9.1",
+    "enzyme-to-json": "^1.5.1",
+    "jest": "^21.1.0",
+    "jest-serializer-html": "^4.0.0",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-test-renderer": "^15.6.1",
     "standard": "^10.0.3",
     "tape": "^4.0.0"
   },
   "dependencies": {
     "numeric-pattern": "^1.0.0",
-    "prop-types": "^15.5.10",
-    "react": "^15.6.1"
+    "prop-types": "^15.5.10"
   }
 }

@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getDecrementProps 1`] = `
+Object {
+  "onClick": [Function],
+}
+`;
+
+exports[`getFormProps 1`] = `
+Object {
+  "onSubmit": [Function],
+}
+`;
+
+exports[`getIncrementProps 1`] = `
+Object {
+  "onClick": [Function],
+}
+`;
+
+exports[`getInputProps 1`] = `
+Object {
+  "focused": undefined,
+  "onBlur": [Function],
+  "onFocus": [Function],
+  "pattern": "[0-9]*",
+  "ref": [Function],
+  "type": "text",
+  "value": 0,
+}
+`;
+
+exports[`getInputProps 2`] = `
+Object {
+  "focused": true,
+  "onBlur": [Function],
+  "onFocus": [Function],
+  "pattern": "[0-9]*",
+  "ref": [Function],
+  "type": "text",
+}
+`;

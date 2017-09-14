@@ -78,13 +78,13 @@ The `onChange` function passed in will be called whenever value changes, whether
 
 #### min
 
-> `number` | default -Number.MAX_VALUE | optional
+> `number` | optional, no default
 
 The value cannot go below this minimum.
 
 #### max
 
-> `number` | default Number.MAX_VALUE | optional
+> `number` | optional, no default
 
 The value cannot go above this maximum.
 

@@ -4,12 +4,13 @@
   "version": "1.0.1",
   "description": "A React primitive for building a stepper component",
   "scripts": {
-    "test": "standard 'src/**/*.js' && jest",
+    "test": "standard --fix 'src/**/*.js' && jest",
     "build": "babel ./src -d dist",
     "prepublish": "npm -s run build"
   },
   "standard": {
-    "parser": "babel-eslint"
+    "parser": "babel-eslint",
+    "globals": ["jest", "test", "expect"]
   },
   "license": "MIT",
   "repository": "ajoslin/react-stepper-primitive",

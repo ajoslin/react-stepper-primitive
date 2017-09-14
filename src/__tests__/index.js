@@ -2,7 +2,7 @@ const React = require('react')
 const {mount} = require('enzyme')
 const Stepper = require('../')
 
-function setup({render = () => <div />, ...props} = {}) {
+function setup ({render = () => <div />, ...props} = {}) {
   let renderArg
   const renderSpy = jest.fn(arg => {
     renderArg = arg
@@ -19,7 +19,7 @@ test('value defaults to 0', () => {
 
 test('value follows defaultValue', () => {
   const {value} = setup({defaultValue: 33})
-  expect(33).toBe(33)
+  expect(value).toBe(33)
 })
 
 test('getFormProps', () => {

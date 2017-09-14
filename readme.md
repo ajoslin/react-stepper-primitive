@@ -18,11 +18,11 @@ ReactDOM.render(
       getDecrementProps
     }) =>
       <form {...getFormProps()}>
-        <button className='step-button' {...getDecrementProps()}>
+        <button className='my-button' {...getDecrementProps()}>
           <img src='/assets/svg/minus.svg' />
         </button>
-        <input className='step-input' {...getInputProps()} />
-        <button className='step-button' {...getIncrementProps()}>
+        <input className='my-step-input' {...getInputProps()} />
+        <button className='my-button' {...getIncrementProps()}>
           <img src='/assets/svg/plus.svg' />
         </button>
       </form>}

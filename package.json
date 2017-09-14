@@ -1,7 +1,7 @@
 {
   "name": "react-stepper-primitive",
   "main": "dist/index.js",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "description": "A React primitive for building a stepper component",
   "scripts": {
     "test": "standard 'src/**/*.js'",

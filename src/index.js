@@ -56,7 +56,7 @@ module.exports = exports.default = class StepperPrimitive extends React.Componen
 
   handleSubmit = ev => {
     ev.preventDefault()
-    this.handleBlur()
+    if (this.input) this.input.blur()
   }
 
   handleInputRef = node => {

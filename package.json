@@ -10,7 +10,11 @@
   },
   "standard": {
     "parser": "babel-eslint",
-    "globals": ["jest", "test", "expect"]
+    "globals": [
+      "jest",
+      "test",
+      "expect"
+    ]
   },
   "license": "MIT",
   "repository": "ajoslin/react-stepper-primitive",

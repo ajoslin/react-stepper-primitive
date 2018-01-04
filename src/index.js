@@ -14,7 +14,8 @@ module.exports = exports.default = class StepperPrimitive extends React.Componen
     min: PropTypes.number,
     max: PropTypes.number,
     onChange: PropTypes.func,
-    render: PropTypes.func.isRequired
+    render: PropTypes.func.isRequired,
+    enableReinitialize: PropTypes.bool
   }
 
   static defaultProps = {
@@ -22,11 +23,22 @@ module.exports = exports.default = class StepperPrimitive extends React.Componen
     step: 1,
     min: -Number.MAX_VALUE,
     max: Number.MAX_VALUE,
-    onChange: () => {}
+    onChange: () => {},
+    enableReinitialize: false
   }
 
   state = {
     value: this.getValue({value: this.props.defaultValue})
+  }
+
+  componentWillReceiveProps (nextProps) {
+    if (
+      this.props.enableReinitialize &&
+      this.props.defaultValue !== nextProps.defaultValue &&
+      this.props.defaultValue === this.state.value
+    ) {
+      this.setValue(nextProps.defaultValue)
+    }
   }
 
   isControlled () {

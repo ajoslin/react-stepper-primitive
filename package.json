@@ -13,7 +13,8 @@
     "globals": [
       "jest",
       "test",
-      "expect"
+      "expect",
+      "describe"
     ]
   },
   "license": "MIT",

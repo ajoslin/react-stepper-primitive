@@ -114,6 +114,12 @@ The `render` prop function is called with the following object:
 | decrement         | setter      | function | Decrement the value by one. Value cannot go over props.max.                                                         |
 | setValue          | setter      | function | Set a new value. Value is coerced to stay between props.min and props.max.                                      |
 
+#### enableReinitialize
+
+> `boolean` | default false | optional
+
+Control whether the current value (if unchanged) will update to the new default if `defaultValue` changes.
+
 ## Related Work
 
 Thanks to [Kent C Dodds](github.com/kentcdodds) for formalizing the "prop getters" idea in [downshift](https://github.com/paypal/downshift). And for the readme formatting, which I've stolen.

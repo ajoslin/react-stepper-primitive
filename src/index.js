@@ -31,13 +31,13 @@ module.exports = exports.default = class StepperPrimitive extends React.Componen
     value: this.getValue({value: this.props.defaultValue})
   }
 
-  componentWillReceiveProps (nextProps) {
+  componentDidUpdate (prevProps, prevState) {
     if (
       this.props.enableReinitialize &&
-      this.props.defaultValue !== nextProps.defaultValue &&
-      this.props.defaultValue === this.state.value
+      prevProps.defaultValue !== this.props.defaultValue &&
+      prevProps.defaultValue === prevState.value
     ) {
-      this.setValue(nextProps.defaultValue)
+      this.setValue(this.props.defaultValue)
     }
   }
 

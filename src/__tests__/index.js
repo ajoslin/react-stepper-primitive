@@ -74,12 +74,21 @@ test('increment/decrement are capped at min/max', () => {
 })
 
 describe('enableReinitialize', () => {
-  test('true: value is updated to new default if defaultValue changes', () => {
+  test('true: value is updated to new default if defaultValue changes and value has not been modified', () => {
     const {wrapper} = setup({defaultValue: 33, enableReinitialize: true})
 
     expect(wrapper.state('value')).toBe(33)
     wrapper.setProps({defaultValue: 42})
     expect(wrapper.state('value')).toBe(42)
+  })
+
+  test('true: value is not updated to new default if defaultValue changes and value has been modified', () => {
+    const {wrapper} = setup({defaultValue: 33, enableReinitialize: true})
+
+    expect(wrapper.state('value')).toBe(33)
+    wrapper.setState({value: 418})
+    wrapper.setProps({defaultValue: 42})
+    expect(wrapper.state('value')).toBe(418)
   })
 
   test('false: value remains unchanged if defaultValue changes', () => {

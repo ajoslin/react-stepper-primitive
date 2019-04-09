@@ -120,7 +120,6 @@ module.exports = exports.default = class StepperPrimitive extends React.Componen
       pattern: numericPattern,
       onBlur: callAll(props.onBlur, this.handleBlur),
       onFocus: callAll(props.onFocus, this.handleFocus),
-      focused: this.state.focused,
       // When the input is focused, let the user type freely.
       // When the input isn't, lock it to the current value
       ...this.state.focused ? {} : {
